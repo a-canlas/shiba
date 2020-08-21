@@ -8,14 +8,21 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getShibes(3);
+  }
+
   getShibes(quantity) {
-    const url = `http://shibe.online/api/shibes?count=${quantity}&urls=true&httpsUrls=true`;
+    const url = `https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes?count=${quantity}&urls=true&httpsUrls=true`;
+
     fetch(url)
       .then(data => data.json())
       .then(shibes => {
-        this.setState({ pictures: shibes })
-      .catch(err => console.error(`Error: ${err}`))
-      });
+        this.setState({ pictures: shibes})
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   render() {
