@@ -13,7 +13,8 @@ class App extends React.Component {
   }
 
   getShibes(quantity) {
-    const url = `https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes?count=${quantity}&urls=true&httpsUrls=true`;
+    const corsProxy = 'https://cors-anywhere.herokuapp.com/'
+    const url = `${corsProxy}http://shibe.online/api/shibes?count=${quantity}&urls=true&httpsUrls=true`;
 
     fetch(url)
       .then(data => data.json())
