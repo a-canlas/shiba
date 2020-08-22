@@ -1,4 +1,5 @@
 import React from 'react';
+import ShibaCard from './ShibaCard';
 
 class App extends React.Component {
   constructor(props){
@@ -6,10 +7,19 @@ class App extends React.Component {
     this.state = {
       pictures: null
     };
+    this.generateShibeCards = this.generateShibeCards.bind(this);
   }
 
   componentDidMount() {
     this.getShibes(3);
+  }
+
+  generateShibeCards(){
+    const pictures = [...this.state.pictures];
+    const shibeCards = pictures.map((pic, index) => {
+      return <ShibaCard picture={pic} key={index}/>
+    });
+    return shibeCards;
   }
 
   getShibes(quantity) {
@@ -27,11 +37,18 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-    <>
-    <h1>Hello World</h1>
-    </>
-    );
+    if(this.state.pictures){
+      return (
+        <React.Fragment>
+          <h1>Pictures here</h1>
+          {this.generateShibeCards()}
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <h1>No pictures</h1>
+      )
+    }
   }
 }
 
