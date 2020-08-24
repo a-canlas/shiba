@@ -10,6 +10,7 @@ class App extends React.Component {
       pictures: null
     };
     this.generateShibeCards = this.generateShibeCards.bind(this);
+    this.getShibes = this.getShibes.bind(this);
   }
 
   componentDidMount() {
