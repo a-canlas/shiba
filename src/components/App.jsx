@@ -1,6 +1,7 @@
 import React from 'react';
 import ShibaCard from './ShibaCard';
 import Header from './Header';
+import Form from './Form';
 
 class App extends React.Component {
   constructor(props){
@@ -42,6 +43,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <Header />
+          <Form shiba={this.getShibes}/>
           <h2>Shiba Delivery!</h2>
           <div className="picture-container">
           {this.generateShibeCards()}
