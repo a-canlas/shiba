@@ -41,7 +41,9 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <h1>Pictures here</h1>
+          <div className="picture-container">
           {this.generateShibeCards()}
+          </div>
         </React.Fragment>
       );
     } else {
