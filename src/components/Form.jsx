@@ -27,8 +27,8 @@ class Form extends React.Component {
       <React.Fragment>
         <form className="form-inline" onSubmit={this.handleSubmit}>
           <label htmlFor="quantity">Quantity: </label>
-          <input type="number" id="quantity" className="form-input" onChange={this.handleChange} />
-          <button type="button" id="submit-btn" className="submit-btn">Submit</button>
+          <input type="text" id="quantity" className="form-input" onChange={this.handleChange} size="2" maxLength="1"/>
+          <button id="submit-btn" className="submit-btn">Submit</button>
         </form>
       </React.Fragment>
     );
