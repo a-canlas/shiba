@@ -1,5 +1,6 @@
 import React from 'react';
 import ShibaCard from './ShibaCard';
+import Header from './Header';
 
 class App extends React.Component {
   constructor(props){
@@ -40,13 +41,19 @@ class App extends React.Component {
     if(this.state.pictures){
       return (
         <React.Fragment>
-          <h1>Pictures here</h1>
+          <Header />
+          <h2>Shiba Delivery!</h2>
+          <div className="picture-container">
           {this.generateShibeCards()}
+          </div>
         </React.Fragment>
       );
     } else {
       return (
-        <h1>No pictures</h1>
+        <React.Fragment>
+          <Header />
+          <h2>Rounding up Shibas...</h2>
+        </React.Fragment>
       )
     }
   }
