@@ -36,3 +36,7 @@ img {
 h2, .page-title {
   font-family: 'Permanent Marker', cursive;
 }
+
+button {
+  margin-left: 5px;
+}
