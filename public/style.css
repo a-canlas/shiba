@@ -30,6 +30,9 @@ img {
 }
 
 .page-title {
-  font-family: 'Permanent Marker', cursive;
   text-align: center;
+}
+
+h2, .page-title {
+  font-family: 'Permanent Marker', cursive;
 }

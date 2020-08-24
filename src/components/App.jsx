@@ -42,7 +42,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <Header />
-          <h1>Shiba Delivery!</h1>
+          <h2>Shiba Delivery!</h2>
           <div className="picture-container">
           {this.generateShibeCards()}
           </div>
@@ -52,7 +52,7 @@ class App extends React.Component {
       return (
         <React.Fragment>
           <Header />
-          <h1>Rounding up Shibas...</h1>
+          <h2>Rounding up Shibas...</h2>
         </React.Fragment>
       )
     }
