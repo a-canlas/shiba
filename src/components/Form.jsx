@@ -11,6 +11,17 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  validate() {
+    const reg = /[1-9]/;
+    let {quantity} = this.state;
+    let result = reg.test(quantity);
+    if(!result){
+      this.setState({ error: 'Please enter a valid number '});
+    }
+    return result;
+
+  }
+
   handleChange(e){
     e.preventDefault();
     let {value} = e.target;
@@ -19,8 +30,15 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let {quantity} = this.state;
+    let validate = this.validate();
+    if(!validate){
+      return;
+    }
+    let { quantity, error } = this.state;
     this.props.shiba(quantity);
+    if(error){
+      this.setState({ error: '' });
+    }
   }
 
   render() {
