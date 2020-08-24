@@ -4,10 +4,22 @@ class Form extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      quantity: null
+      quantity: null,
+      error: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  validate() {
+    const reg = /[1-9]/;
+    let {quantity} = this.state;
+    let result = reg.test(quantity);
+    if(!result){
+      this.setState({ error: 'Please enter a valid number '});
+    }
+    return result;
+
   }
 
   handleChange(e){
@@ -18,8 +30,15 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let {quantity} = this.state;
+    let validate = this.validate();
+    if(!validate){
+      return;
+    }
+    let { quantity, error } = this.state;
     this.props.shiba(quantity);
+    if(error){
+      this.setState({ error: '' });
+    }
   }
 
   render() {
@@ -30,6 +49,7 @@ class Form extends React.Component {
           <input type="text" id="quantity" className="form-input" onChange={this.handleChange} size="2" maxLength="1"/>
           <button id="submit-btn" className="submit-btn">Submit</button>
         </form>
+        <small>{this.state.error}</small>
       </React.Fragment>
     );
   }

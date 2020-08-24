@@ -40,3 +40,7 @@ h2, .page-title {
 button {
   margin-left: 5px;
 }
+
+small {
+  color: red;
+}
