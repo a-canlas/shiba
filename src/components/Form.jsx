@@ -4,7 +4,8 @@ class Form extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      quantity: null
+      quantity: null,
+      error: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,7 @@ class Form extends React.Component {
           <input type="text" id="quantity" className="form-input" onChange={this.handleChange} size="2" maxLength="1"/>
           <button id="submit-btn" className="submit-btn">Submit</button>
         </form>
+        <small>{this.state.error}</small>
       </React.Fragment>
     );
   }
